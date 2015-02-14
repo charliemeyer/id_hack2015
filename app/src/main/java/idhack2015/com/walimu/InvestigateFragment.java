@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 /**
@@ -46,29 +47,45 @@ public class InvestigateFragment extends Fragment {
         // Apply the adapter to the spinner
         spinnerCondition.setAdapter(adapter2);
 
-
         return mLayout;
     }
 
     public void setOptions(View view){
-        Spinner timeframe = (Spinner) getActivity().findViewById(R.id.spinner);
-        Spinner condition = (Spinner) getActivity().findViewById(R.id.spinner2);
-        switch(getActivity().findViewById(R.id.radioDischargeGroup)) {
-            case getActivity().findViewById(R.id.dischargeAll).isChecked():
-                if (checked)
-                    // Pirates are the best
-                    break;
-            case R.id.radio_ninjas:
-                if (checked)
-                    // Ninjas rule
-                    break;
+        Spinner tframe = (Spinner) getActivity().findViewById(R.id.spinner);
+        Spinner cond = (Spinner) getActivity().findViewById(R.id.spinner2);
+        String timeFrame = tframe.getSelectedItem().toString();
+        String condition = cond.getSelectedItem().toString();
+        int dischargeType = 0;
+        int genderType = 0;
+        int hivStatus = 0;
+
+        if (((RadioButton)getActivity().findViewById(R.id.dischargeAll)).isChecked()){
+            dischargeType = 0;
+        }else if (((RadioButton)getActivity().findViewById(R.id.dischargeAlive)).isChecked()){
+            dischargeType = 1;
+        }else {
+            dischargeType = 2;
         }
-        int dischargeId = getActivity().findViewById(R.id.radioDischargeGroup).getCheckedRadioButtonId();
-        int genderId = radioGenderGroup.getCheckedRadioButtonId();
-        int hivStatusId = radioHivStatusGroup.getCheckedRadioButtonId();
+        if (((RadioButton)getActivity().findViewById(R.id.genderAll)).isChecked()){
+            genderType = 0;
+        }else if (((RadioButton)getActivity().findViewById(R.id.genderMale)).isChecked()){
+            genderType = 1;
+        }else { //female
+            dischargeType = 2;
+        }
+        if (((RadioButton)getActivity().findViewById(R.id.hivAll)).isChecked()){
+            hivStatus = 0;
+        }else if (((RadioButton)getActivity().findViewById(R.id.hivPos)).isChecked()){
+            hivStatus = 1;
+        }else { //negative HIV status
+            hivStatus = 2;
+        }
+    makeSearch(timeFrame, condition, dischargeType, genderType, hivStatus);
+    }
+    public void makeSearch(String time, String cond, int discharge, int gender, int hiv){
+//show the results view
 
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
