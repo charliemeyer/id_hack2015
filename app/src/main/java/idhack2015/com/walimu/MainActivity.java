@@ -9,6 +9,10 @@ package idhack2015.com.walimu;
  * yo lol 
  */
 
+/*
+*dan's comment
+ */
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
