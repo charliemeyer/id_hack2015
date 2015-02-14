@@ -1,4 +1,4 @@
-package idhack2015.com.walimu;
+package idhack2015.com.walimu.tabs;
 
 /*
  * Copyright (C) 2013 The Android Open Source Project
@@ -25,6 +25,8 @@ package idhack2015.com.walimu;
         import android.util.TypedValue;
         import android.view.View;
         import android.widget.LinearLayout;
+
+        import idhack2015.com.walimu.R;
 
 
 class SlidingTabStrip extends LinearLayout {
