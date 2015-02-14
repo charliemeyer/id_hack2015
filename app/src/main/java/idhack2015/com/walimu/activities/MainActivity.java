@@ -1,7 +1,9 @@
-package idhack2015.com.walimu;
+package idhack2015.com.walimu.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+
+import idhack2015.com.walimu.R;
 
 
 public class MainActivity extends ActionBarActivity {

@@ -11,7 +11,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_gravity="start"
-              android:name="idhack2015.com.walimu.ViewPagerFragment"
+              android:name="idhack2015.com.walimu.fragments.ViewPagerFragment"
               tools:layout="@layout/fragment_main"/>
 
 </LinearLayout>

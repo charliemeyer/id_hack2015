@@ -1,5 +1,6 @@
-package idhack2015.com.walimu;
+package idhack2015.com.walimu.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+
+import idhack2015.com.walimu.R;
+import idhack2015.com.walimu.activities.InvestigateActivity;
 
 /**
  * @author Aaron on 2/14/2015.
@@ -64,25 +68,25 @@ public class InvestigateFragment extends Fragment {
                 int genderType = 0;
                 int hivStatus = 0;
 
-                if (((RadioButton)getActivity().findViewById(R.id.dischargeAll)).isChecked()){
+                if (((RadioButton) getActivity().findViewById(R.id.dischargeAll)).isChecked()) {
                     dischargeType = 0;
-                }else if (((RadioButton)getActivity().findViewById(R.id.dischargeAlive)).isChecked()){
+                } else if (((RadioButton) getActivity().findViewById(R.id.dischargeAlive)).isChecked()) {
                     dischargeType = 1;
-                }else {
+                } else {
                     dischargeType = 2;
                 }
-                if (((RadioButton)getActivity().findViewById(R.id.genderAll)).isChecked()){
+                if (((RadioButton) getActivity().findViewById(R.id.genderAll)).isChecked()) {
                     genderType = 0;
-                }else if (((RadioButton)getActivity().findViewById(R.id.genderMale)).isChecked()){
+                } else if (((RadioButton) getActivity().findViewById(R.id.genderMale)).isChecked()) {
                     genderType = 1;
-                }else { //female
+                } else { //female
                     dischargeType = 2;
                 }
-                if (((RadioButton)getActivity().findViewById(R.id.hivAll)).isChecked()){
+                if (((RadioButton) getActivity().findViewById(R.id.hivAll)).isChecked()) {
                     hivStatus = 0;
-                }else if (((RadioButton)getActivity().findViewById(R.id.hivPos)).isChecked()){
+                } else if (((RadioButton) getActivity().findViewById(R.id.hivPos)).isChecked()) {
                     hivStatus = 1;
-                }else { //negative HIV status
+                } else { //negative HIV status
                     hivStatus = 2;
                 }
                 makeSearch(timeFrame, condition, dischargeType, genderType, hivStatus);
@@ -92,8 +96,14 @@ public class InvestigateFragment extends Fragment {
 
 
     public void makeSearch(String time, String cond, int discharge, int gender, int hiv){
-//show the results view
-
+        //show the results view
+        Intent intent = new Intent(getActivity(), InvestigateActivity.class);
+        intent.putExtra("time", time);
+        intent.putExtra("condition", cond);
+        intent.putExtra("discharge", discharge);
+        intent.putExtra("gender", gender);
+        intent.putExtra("hiv", hiv);
+        getActivity().startActivity(intent);
     }
     
     @Override

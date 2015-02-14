@@ -1,4 +1,4 @@
-package idhack2015.com.walimu;
+package idhack2015.com.walimu.fragments;
 
 /**
  * Created by Isaac on 2/14/2015.
@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import idhack2015.com.walimu.R;
 
 public class ErrorFragment extends Fragment {
     private final static String TAG = "ErrorFragment";

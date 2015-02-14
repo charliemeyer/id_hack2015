@@ -1,5 +1,6 @@
 package idhack2015.com.walimu.utilities;
 
+import android.util.Base64;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -55,14 +56,12 @@ public class Commcare_api {
 //    }
 
     public String get_cases(String domain, HashMap<String, String> options) {
-        options = null;
-
         String url = build_url(domain, "case", options);
         return get_request(url);
     }
 
     public String get_case(String domain, int case_id, HashMap<String, String> options) {
-        String url = build_url(domain, "case/#{case_id}", options);
+        String url = build_url(domain, "case/" + case_id, options);
         return get_request(url);
     }
 
@@ -72,7 +71,7 @@ public class Commcare_api {
     }
 
     public String get_form (String domain, int form_id, HashMap<String, String> options) {
-        String url = build_url(domain, "form/#{form_id}", options);
+        String url = build_url(domain, "form/" + form_id, options);
         return get_request(url);
     }
 
@@ -87,7 +86,7 @@ public class Commcare_api {
     }
 
     public String get_mobile_worker(String domain, int user_id, HashMap<String, String> options) {
-        String url = build_url(domain, "user/#{user_id}", options);
+        String url = build_url(domain, "user/" + user_id, options);
         return get_request(url);
     }
 
@@ -97,7 +96,7 @@ public class Commcare_api {
     }
 
     public String get_web_user(String domain, int user_id) {
-        String url = build_url(domain, "web-user/#{user_id}", null);
+        String url = build_url(domain, "web-user/" + user_id, null);
         return get_request(url);
     }
 
@@ -135,12 +134,14 @@ public class Commcare_api {
     public String get_request(String url) {
         String response = null;
         try {
+
             // make dat http client
             DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpEntity httpEntity = null;
             HttpResponse httpResponse = null;
             // do the request
-            HttpGet httpGet = new HttpGet(url);
+            HttpGet httpGet = authGet(url);
+
             httpResponse = httpClient.execute(httpGet);
             httpEntity = httpResponse.getEntity();
             // TODO: so what's the deal with saving the stuff
@@ -157,6 +158,15 @@ public class Commcare_api {
         return response;
     }
 
+    private HttpGet authGet(String url) {
+        HttpGet get = new HttpGet(url);
+        String source = user + ":" + password;
+        String auth= "Basic " + Base64.encodeToString(source.getBytes(),
+                Base64.URL_SAFE | Base64.NO_WRAP);
+        get.setHeader("Authorization", auth);
+        return get;
+    }
+
     /**
      * Builds a url, e.g. https://www.commcarehq.org/a/[domain]/api/[version]/case/[options]
      * @param domain
@@ -165,7 +175,7 @@ public class Commcare_api {
      * @return the url (String)
      */
     public String build_url(String domain, String action, HashMap<String, String> options) {
-        String url = CC_BASE_URL + "/" + domain + "/api" + "version" + "/" + action;
+        String url = CC_BASE_URL + "/" + domain + "/api/" + version + "/" + action;
         String optionString = null;
         if (options != null) {
             for (String key : options.keySet()) {
@@ -181,6 +191,7 @@ public class Commcare_api {
             Log.d(TAG, "url = '" + url + "'");
         }
 
+        Log.d(TAG, "url = '" + url + "'");
         return url;
     }
 

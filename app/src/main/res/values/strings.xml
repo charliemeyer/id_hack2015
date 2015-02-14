@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">Walimu</string>
+    <string name="investigate_activity_label">Investigate!</string>
+
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>

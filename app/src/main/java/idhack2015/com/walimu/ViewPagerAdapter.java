@@ -9,6 +9,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import idhack2015.com.walimu.fragments.ErrorFragment;
+import idhack2015.com.walimu.fragments.InvestigateFragment;
+import idhack2015.com.walimu.fragments.MonitorFragment;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     /** List of fragments to fill the pages */
     @SuppressWarnings("unused")
