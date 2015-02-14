@@ -95,6 +95,7 @@ public class InvestigateFragment extends Fragment {
 //show the results view
 
     }
+    
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
