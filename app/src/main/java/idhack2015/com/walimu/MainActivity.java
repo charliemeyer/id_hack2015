@@ -21,6 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity
@@ -45,11 +48,26 @@ public class MainActivity extends ActionBarActivity
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
+
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
+
+    public void setOptions(View view){
+
+
+    }
+   /** public void submit(View view){
+        boolean male = ((RadioButton)findViewById(R.id.radioButton_male)).isChecked();
+        if(male){
+            Toast.makeText(this, "It's a boy", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+*/
+
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
