@@ -1,4 +1,4 @@
-package idhack2015.com.walimu;
+package idhack2015.com.walimu.tabs;
 
 /*
  * Copyright (C) 2013 The Android Open Source Project
