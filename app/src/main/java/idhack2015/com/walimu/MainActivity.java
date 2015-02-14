@@ -27,6 +27,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 
@@ -60,8 +62,18 @@ public class MainActivity extends ActionBarActivity
     }
 
     public void setOptions(View view){
+        Spinner timeframe = (Spinner) findViewById(R.id.timeframe);
+        Spinner condition = (Spinner) findViewById(R.id.condition);
 
+        int dischargeId = radioDischargeGroup.getCheckedRadioButtonId();
+        int genderId = radioGenderGroup.getCheckedRadioButtonId();
+        int hivStatusId = radioHivStatusGroup.getCheckedRadioButtonId();
 
+    }
+
+    public void setTimeFrame(View view){
+        SeekBar timeFrame = (SeekBar) findViewById(R.id.timeFrame);
+        onProgressChanged()
     }
    /** public void submit(View view){
         boolean male = ((RadioButton)findViewById(R.id.radioButton_male)).isChecked();
