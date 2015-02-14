@@ -61,30 +61,6 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
-    public void setOptions(View view){
-        Spinner timeframe = (Spinner) findViewById(R.id.timeframe);
-        Spinner condition = (Spinner) findViewById(R.id.condition);
-
-        int dischargeId = radioDischargeGroup.getCheckedRadioButtonId();
-        int genderId = radioGenderGroup.getCheckedRadioButtonId();
-        int hivStatusId = radioHivStatusGroup.getCheckedRadioButtonId();
-
-    }
-
-    public void setTimeFrame(View view){
-        SeekBar timeFrame = (SeekBar) findViewById(R.id.timeFrame);
-        onProgressChanged()
-    }
-   /** public void submit(View view){
-        boolean male = ((RadioButton)findViewById(R.id.radioButton_male)).isChecked();
-        if(male){
-            Toast.makeText(this, "It's a boy", Toast.LENGTH_SHORT).show();
-
-        }
-    }
-*/
-
-
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
