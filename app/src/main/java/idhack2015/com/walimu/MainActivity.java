@@ -1,4 +1,8 @@
 package idhack2015.com.walimu;
+/** Maggie's Comment
+ * What up?
+ * Kewlll
+ */
 
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
