@@ -11,4 +11,14 @@
     <string name="action_settings">Settings</string>
     <string name="main_text">Hello World</string>
 
+    <string-array name="timeFrame">
+        <item>1 Day</item>
+        <item>1 Week</item>
+        <item>1 Month</item>
+    </string-array>
+    <string-array name="condition">
+        <item>Shock</item>
+        <item>Septic Shock</item>
+        <item>Severe Respiratory Distress</item>
+    </string-array>
 </resources>
